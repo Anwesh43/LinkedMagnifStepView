@@ -211,4 +211,13 @@ class MagnifStepView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity : Activity) : MagnifStepView {
+            val view : MagnifStepView = MagnifStepView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
