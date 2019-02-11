@@ -22,6 +22,8 @@ val strokeFactor : Int = 90
 val foreColor : Int = Color.parseColor("#4527A0")
 val backColor : Int = Color.parseColor("#212121")
 val rotDeg : Float = 45f
+val delay : Long = 20
+
 fun Int.inverse() : Float = 1f / this
 fun Float.maxScale(i : Int, n : Int) : Float = Math.max(0f, this - i * n.inverse())
 fun Float.divideScale(i : Int, n : Int) : Float = Math.min(n.inverse(), maxScale(i, n)) * n
@@ -38,6 +40,7 @@ fun Canvas.drawMSNode(i : Int, scale : Float, paint : Paint) {
     paint.color = foreColor
     paint.strokeWidth = Math.min(w, h) / strokeFactor
     paint.strokeCap = Paint.Cap.ROUND
+    paint.style = Paint.Style.STROKE
     val y : Float = -2 * size / 3
     val r : Float = (size -  Math.abs(y)) / 2
     val sc1 : Float = scale.divideScale(0, 2)
@@ -100,7 +103,7 @@ class MagnifStepView(ctx : Context) : View(ctx) {
             if (animated) {
                 cb()
                 try {
-                    Thread.sleep(50)
+                    Thread.sleep(delay)
                     view.invalidate()
                 } catch(ex : Exception) {
 
