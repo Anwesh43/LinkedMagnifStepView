@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/LinkedMagnifStepView.iml" filepath="$PROJECT_DIR$/LinkedMagnifStepView.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/magnifstepview/magnifstepview.iml" filepath="$PROJECT_DIR$/magnifstepview/magnifstepview.iml" />
+    </modules>
+  </component>
+</project>
