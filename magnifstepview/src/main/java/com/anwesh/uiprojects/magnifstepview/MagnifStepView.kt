@@ -188,4 +188,26 @@ class MagnifStepView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : MagnifStepView) {
+
+        private val animator : Animator = Animator(view)
+        private val ms : MagnifStep = MagnifStep(0)
+
+        fun render(canvas : Canvas, paint : Paint) {
+            canvas.drawColor(backColor)
+            ms.draw(canvas, paint)
+            animator.animate {
+                ms.update {i, scl ->
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            ms.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
