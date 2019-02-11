@@ -41,19 +41,19 @@ fun Canvas.drawMSNode(i : Int, scale : Float, paint : Paint) {
     paint.strokeWidth = Math.min(w, h) / strokeFactor
     paint.strokeCap = Paint.Cap.ROUND
     paint.style = Paint.Style.STROKE
-    val y : Float = -2 * size / 3
-    val r : Float = (size -  Math.abs(y)) / 2
+    val y : Float = -4 * size / 3
+    val r : Float = (2 * size -  Math.abs(y)) / 2
     val sc1 : Float = scale.divideScale(0, 2)
     val sc2 : Float = scale.divideScale(1, 2)
     for (j in 0..(lines - 1)) {
         val sc : Float = sc2.divideScale(j, lines)
         save()
-        translate(w / 2, gap * (i + 1))
+        translate(w / 2, gap * (i + 1) + size)
         rotate(rotDeg * sc * j.sf())
         drawLine(0f, 0f, 0f, y, paint)
         save()
         translate(0f, y)
-        drawArc(RectF(-r, -r, r, r), -90f, 360f * sc1, false, paint)
+        drawArc(RectF(-r, -2 * r, r, 0f), -90f, 360f * sc1, false, paint)
         restore()
         restore()
     }
